@@ -25,7 +25,7 @@
     },
 
     "scripts": {
-        "post-package-install": [
+        "post-autoload-install": [
             "php artisan vendor:publish",
             "php artisan geoip:update",
             "php artisan migrate:refresh",
