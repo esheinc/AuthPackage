@@ -44,6 +44,10 @@ class AuthPackageServiceProvider extends ServiceProvider
                require __DIR__.'/routes.php';
         }
 
+        // service providers
+        $this->app->register('Torann\GeoIP\GeoIPServiceProvider');
+        $this->app->register('Jenssegers\Agent\AgentServiceProvider');
+
         Config::set('auth.providers.users.model', Config::get('authpackage.users.model'));
         Config::set('geoip.cache_tags', Config::get('authpackage.geoip.cache_tags'));
 
