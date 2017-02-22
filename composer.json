@@ -22,5 +22,15 @@
             "Esheinc\\AuthPackage\\":"src/"
         }
         
-    }
+    },
+
+    "scripts": {
+        "post-package-install": [
+            "php artisan vendor:publish",
+            "php artisan geoip:update",
+            "php artisan migrate:refresh",
+            "php artisan db:seed --class=AdminsTableSeeder",
+            "php artisan db:seed --class=CountriesTableSeeder"
+        ],
+    },
 }

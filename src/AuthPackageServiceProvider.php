@@ -40,12 +40,9 @@ class AuthPackageServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        include __DIR__.'/routes.php';
-
-        $this->app->bind('Admin', function() {
-            return new Models\Admin();
-        });
-
+        if (! $this->app->routesAreCached()) {
+               require __DIR__.'/routes.php';
+        }
 
         Config::set('auth.providers.users.model', Config::get('authpackage.users.model'));
         Config::set('geoip.cache_tags', Config::get('authpackage.geoip.cache_tags'));
