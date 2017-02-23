@@ -18,19 +18,13 @@
     },
 
     "autoload": {
+        // "classmap": [
+        //         "app/database/migrations"
+        //     ],
         "psr-4": {
             "Esheinc\\AuthPackage\\":"src/"
         }
         
-    },
-
-    "scripts": {
-        "post-autoload-dump": [
-            "php artisan vendor:publish",
-            "php artisan geoip:update",
-            "php artisan migrate:refresh",
-            "php artisan db:seed --class=AdminsTableSeeder",
-            "php artisan db:seed --class=CountriesTableSeeder"
-        ]
     }
+
 }

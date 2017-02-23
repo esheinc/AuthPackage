@@ -51,5 +51,10 @@ class AuthPackageServiceProvider extends ServiceProvider
         Config::set('auth.providers.users.model', Config::get('authpackage.users.model'));
         Config::set('geoip.cache_tags', Config::get('authpackage.geoip.cache_tags'));
 
+
+        //command
+        $this->commands([
+                Console\Install::class
+            ]);
     }
 }
