@@ -18,9 +18,7 @@
     },
 
     "autoload": {
-        // "classmap": [
-        //         "app/database/migrations"
-        //     ],
+
         "psr-4": {
             "Esheinc\\AuthPackage\\":"src/"
         }
