@@ -40,12 +40,12 @@ class Install extends Command
     {
         $this->comment('Running vendor:publish...');
         $exitCode = Artisan::call('vendor:publish', []);
+        $this->comment('Running autoload for seeding...');
+        shell_exec("composer dump-autoload");
         $this->comment('Running geoip:update...');
         $exitCode = Artisan::call('geoip:update', []);
         $this->comment('Running migrate:refresh...');
         $exitCode = Artisan::call('migrate:refresh', []);
-        $this->comment('Running autoload for seeding...');
-        shell_exec("composer dump-autoload");
         $this->comment('Running db:seed for AdminsTableSeeder...');
         $exitCode = Artisan::call('db:seed', ['--class' => 'AdminsTableSeeder']);
         $this->comment('Running db:seed for CountriesTableSeeder...');
