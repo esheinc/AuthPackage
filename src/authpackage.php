@@ -9,6 +9,7 @@ return [
 
     'geoip' => [
         'cache_tags' => [],
+        'service' => 'maxmind_database'
     ],
 ];
 
