@@ -17,7 +17,7 @@ class AuthPackageServiceProvider extends ServiceProvider
         if (! $this->app->routesAreCached()) {
                require __DIR__.'/routes.php';
         }
-        
+
         $this->publishes([
             __DIR__.'/views' => base_path('resources/views/vendor/AuthPackage'),
             __DIR__.'/assets' => base_path('public/assets'),
@@ -51,6 +51,7 @@ class AuthPackageServiceProvider extends ServiceProvider
 
         Config::set('auth.providers.users.model', Config::get('authpackage.users.model'));
         Config::set('geoip.cache_tags', Config::get('authpackage.geoip.cache_tags'));
+        Config::set('geoip.service', Config::get('authpackage.geoip.service'));
 
 
         //command
