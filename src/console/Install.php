@@ -41,7 +41,7 @@ class Install extends Command
         $this->comment('Running vendor:publish...');
         $exitCode = Artisan::call('vendor:publish', []);
         $this->comment('Running autoload for seeding...');
-        shell_exec("composer dump-autoload");
+        shell_exec("composer dump-autoload -o");
         $this->comment('Running geoip:update...');
         $exitCode = Artisan::call('geoip:update', []);
         $this->comment('Running migrate:refresh...');
