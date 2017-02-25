@@ -14,7 +14,10 @@ class AuthPackageServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-
+        if (! $this->app->routesAreCached()) {
+               require __DIR__.'/routes.php';
+        }
+        
         $this->publishes([
             __DIR__.'/views' => base_path('resources/views/vendor/AuthPackage'),
             __DIR__.'/assets' => base_path('public/assets'),
@@ -40,9 +43,7 @@ class AuthPackageServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        if (! $this->app->routesAreCached()) {
-               require __DIR__.'/routes.php';
-        }
+        
 
         // service providers
         $this->app->register('Torann\GeoIP\GeoIPServiceProvider');
